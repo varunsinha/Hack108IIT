@@ -3,10 +3,63 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NAME :"
+            android:textColor="#191970"
+            android:textSize="23dp"
+            android:paddingTop="05dp"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="10dp"
+            android:textStyle="italic|bold"
+            />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/name"
+            android:hint="Enter Name"
+            android:textSize="18dp"
+            android:layout_marginTop="05dp"
+            android:layout_marginLeft="120dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PHONE NUMBER :"
+            android:textColor="#191970"
+            android:textSize="23dp"
+            android:paddingTop="05dp"
+            android:layout_marginTop="15dp"
+            android:paddingLeft="10dp"
+            android:textStyle="italic|bold"
+            />
+
+        <EditText
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/phno"
+            android:hint="Enter Number "
+            android:textSize="18dp"
+            android:layout_marginTop="05dp"
+            android:layout_marginLeft="20dp"/>
+
+    </LinearLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="fill_parent">
+        android:layout_height="wrap_content">
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="fill_parent"
@@ -14,7 +67,8 @@
             android:id="@+id/map"
             tools:context=".MapsActivity"
             android:name="com.google.android.gms.maps.SupportMapFragment"
-            android:layout_gravity="top" />
+            android:layout_gravity="top"
+           />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,13 +95,6 @@
             android:layout_below="@+id/zoomin"
             android:layout_alignParentEnd="true" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:layout_alignParentBottom="true"
-            android:id="@+id/tv" />
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +103,22 @@
             android:layout_below="@+id/add"
             android:layout_alignStart="@+id/add" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv"
+                android:textSize="40dp"
+                android:textStyle="italic|bold"
+                android:textColor="#008000"
+                android:layout_gravity="bottom"
+               android:layout_toRightOf="@+id/zoomout"
+
+                />
+
+
     </RelativeLayout>
+
+
 
 
 </LinearLayout>

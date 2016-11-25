@@ -40,11 +40,12 @@ import java.io.IOException;
 import java.util.List;
 
 public class MapsActivity extends FragmentActivity {
-    private Button logout, zoomin, zoomout;
+    private Button  zoomin, zoomout;
     private GoogleMap mMap;
-    private Button location;
     private TextView tv;
-    String lat, lon;
+    public EditText pn,newname;
+    public long phone_number;
+    String lat, lon,s1;
     String glat,glon;
     Button add,cancel;
     String name;
@@ -59,21 +60,10 @@ public class MapsActivity extends FragmentActivity {
         tv = (TextView) findViewById(R.id.tv);
         add = (Button) findViewById(R.id.add);
         cancel=(Button) findViewById(R.id.cross);
+        pn=(EditText)findViewById(R.id.phno);
+        newname=(EditText)findViewById(R.id.name);
+        }
 
-        Intent intent = getIntent();
-        name=intent.getStringExtra("key");
-
-
-
-        cancel.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-                finish();
-            }
-        });
-
-
-    }
 
     public void onclick(View view) {
         if (view.getId() == R.id.zoomin) {
@@ -86,87 +76,6 @@ public class MapsActivity extends FragmentActivity {
         }
 
         }
-
-    /*public void onsearch(View view) {
-
-
-        EditText t1 = (EditText) findViewById(R.id.tf1);
-        String location = t1.getText().toString();
-        List<Address> addressList = null;
-        if (location != null || location.equals("")) {
-            Geocoder geocoder = new Geocoder(this);
-            try {
-                addressList = geocoder.getFromLocationName(location, 1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            Address address = addressList.get(0);
-
-            LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-            //.d("Latitude",address.getLatitude().toS);
-            lat = String.valueOf(address.getLatitude());
-            lon = String.valueOf(address.getLongitude());
-            //Log.d(locationManager.addGpsStatusListener(address.getLatitude(),"latitude"));
-            mMap.addMarker(new MarkerOptions().position(latLng).title("Marker"));
-            mMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
-        }
-        Firebase.setAndroidContext(this);
-
-        add = (Button) findViewById(R.id.add);
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Firebase ref = new Firebase("https://jamlatlon.firebaseio.com/");
-
-                //Getting values to store
-                //  String name = editTextName.getText().toString().trim();
-                // String address = editTextAddress.getText().toString().trim();
-
-                //Creating Person object
-                addperson person = new addperson();
-
-                //Adding values
-                Bundle bundle =getIntent().getExtras();
-                String name =bundle.getString("key");
-                person.setName(name);
-                person.setLatitude(Float.valueOf(lat));
-                person.setLongitude(Float.valueOf(lon));
-
-                //Storing values to firebase
-                ref.child("Person").setValue(person);
-
-                //Value event listener for realtime data update
-                ref.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        for (DataSnapshot postSnapshot : snapshot.getChildren()) {
-                            //Getting the data from snapshot
-                            addperson person = postSnapshot.getValue(addperson.class);
-
-                            //Adding it to a string
-                            String string = "Latitude" + person.getLatitude() + "\nLongitude: " + person.getLongitude() + "\n\n";
-
-                            //Displaying it on textview
-                            tv.setText(string);
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(FirebaseError firebaseError) {
-                        System.out.println("The read failed: " + firebaseError.getMessage());
-                    }
-                });
-
-            }
-        });
-
-
-            }
-
-*/
 
 
     @Override
@@ -211,6 +120,7 @@ public class MapsActivity extends FragmentActivity {
              // Check if we were successful in obtaining the map.
             if (mMap != null) {
                // setUpMap();
+                mMap.setMyLocationEnabled(true);
 
                 mMap.setOnMyLocationChangeListener(new GoogleMap.OnMyLocationChangeListener() {
 
@@ -233,24 +143,22 @@ public class MapsActivity extends FragmentActivity {
 
                         add = (Button) findViewById(R.id.add);
                         add.setOnClickListener(new View.OnClickListener() {
+
+
+
+
                             @Override
                             public void onClick(View v) {
 
                                 Firebase ref = new Firebase("https://jamlatlon.firebaseio.com/");
-
+                                name=newname.getText().toString();
+                                phone_number=Long.parseLong(pn.getText().toString());
                                 //Getting values to store
-                                //  String name = editTextName.getText().toString().trim();
-                                // String address = editTextAddress.getText().toString().trim();
 
                                 //Creating Person object
                                 addperson person = new addperson();
-
-                                //Adding values
-                               // Bundle bundle =getIntent().getExtras();
-                                //String name =bundle.getString("key");
-                                //person.setName(name);
-                                //Log.d("msg","name");
                                 person.setName(name);
+                                person.setPhoneNumber(phone_number);
                                 person.setLatitude(Float.valueOf(glat));
                                 person.setLongitude(Float.valueOf(glon));
 
