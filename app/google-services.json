@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "209437139495",
+    "firebase_url": "https://jamlatlon.firebaseio.com",
+    "project_id": "jamlatlon",
+    "storage_bucket": "jamlatlon.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:209437139495:android:2f032b1a757c482f",
+        "android_client_info": {
+          "package_name": "com.varunsinha.jam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "209437139495-ng734jqkb0qjk6n5v9e0tik2upcgfdt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwgPqHFNOisx5sP3x7DKJXcgg1eWMFVKQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -15,40 +15,39 @@ import android.widget.Toast;
 import com.google.android.gms.maps.CameraUpdateFactory;
 
 public class MainActivity extends Activity {
-private  Button login;
-    private  EditText username,password;
-    private  String s1,s2;
+    private Button login;
+    private EditText name;
+    public String s1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        username = (EditText) findViewById(R.id.user);
-        password = (EditText) findViewById(R.id.pass);
+        name = (EditText) findViewById(R.id.name);
+
         // login = (Button) findViewById(R.id.log);
         //signup = (Button) findViewById(R.id.sign);
 
-
-        s1 = username.getText().toString();
-        s2 = password.getText().toString();
-
     }
 
-    public void onclick(View view)
-    {
-        if(view.getId()==R.id.log) {
+    public void onclick(View view) {
 
+        s1 = name.getText().toString();
+        if (s1 == null) {
 
-
-
-                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-                intent.putExtra("key", s1);
-                startActivity(intent);
-            }
+            Toast.makeText(getApplicationContext(), "please enter name", Toast.LENGTH_SHORT).show();
         }
 
+        if (view.getId() == R.id.search) {
 
-
+            Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+            //Bundle bundle= new Bundle();
+            //bundle.putString("key","s1");
+            intent.putExtra("key", s1);
+            startActivity(intent);
+        }
+    }
 
 
 }

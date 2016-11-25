@@ -3,35 +3,18 @@
     android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-        <EditText
-            android:layout_width="235dp"
-            android:layout_height="52dp"
-            android:id="@+id/tf1"
-            android:inputType="text" />
-
-        <Button
-            android:layout_width="146dp"
-            android:layout_height="wrap_content"
-            android:text="search"
-            android:id="@+id/button"
-            android:onClick="onsearch"
-            android:layout_gravity="right"/>
-
-    </LinearLayout>
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="fill_parent">
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:id="@+id/map"
             tools:context=".MapsActivity"
-            android:name="com.google.android.gms.maps.SupportMapFragment"/>
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_gravity="top" />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -51,13 +34,29 @@
             android:layout_alignParentStart="true" />
 
         <Button
-            style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="location"
-            android:id="@+id/location"
-            android:layout_alignParentTop="true"
+            android:text="HELP"
+            android:id="@+id/add"
+            android:layout_below="@+id/zoomin"
             android:layout_alignParentEnd="true" />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_alignParentBottom="true"
+            android:id="@+id/tv" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cross"
+            android:layout_below="@+id/add"
+            android:layout_alignStart="@+id/add" />
+
     </RelativeLayout>
+
+
 </LinearLayout>

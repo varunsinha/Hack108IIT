@@ -8,7 +8,7 @@
         android:id="@+id/imgLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/plot1"
+        android:src="@drawable/hello"
         android:scaleType="fitXY"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
